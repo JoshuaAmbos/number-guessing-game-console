@@ -1,0 +1,14 @@
+/home/joshuuu/projects/NumberGuessingGame/bin/Debug/net10.0/NumberGuessingGame
+/home/joshuuu/projects/NumberGuessingGame/bin/Debug/net10.0/NumberGuessingGame.deps.json
+/home/joshuuu/projects/NumberGuessingGame/bin/Debug/net10.0/NumberGuessingGame.runtimeconfig.json
+/home/joshuuu/projects/NumberGuessingGame/bin/Debug/net10.0/NumberGuessingGame.dll
+/home/joshuuu/projects/NumberGuessingGame/bin/Debug/net10.0/NumberGuessingGame.pdb
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.GeneratedMSBuildEditorConfig.editorconfig
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.AssemblyInfoInputs.cache
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.AssemblyInfo.cs
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.csproj.CoreCompileInputs.cache
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.dll
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/refint/NumberGuessingGame.dll
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.pdb
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.genruntimeconfig.cache
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/ref/NumberGuessingGame.dll
