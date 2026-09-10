@@ -11,12 +11,14 @@
 class Program{
     static void Main(string[] args)
     {
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("\t" + @"   ___                       _____ _                __                 _               ");
         Console.WriteLine("\t" + @"  / _ \_   _  ___  ___ ___  /__   \ |__   ___    /\ \ \_   _ _ __ ___ | |__   ___ _ __ ");
         Console.WriteLine("\t" + @" / /_\/ | | |/ _ \/ __/ __|   / /\/ '_ \ / _ \  /  \/ / | | | '_ ` _ \| '_ \ / _ \ '__|");
         Console.WriteLine("\t" + @"/ /_\\| |_| |  __/\__ \__ \  / /  | | | |  __/ / /\  /| |_| | | | | | | |_) |  __/ |   ");
         Console.WriteLine("\t" + @"\____/ \__,_|\___||___/___/  \/   |_| |_|\___| \_\ \/  \__,_|_| |_| |_|_.__/ \___|_|    Made by: Joshuuu");
         Console.WriteLine("\n\t=====================================================================================");
+        Console.ResetColor();
         Console.WriteLine("\n\tA secret integer is randomly generated between a 1 and a number of your choice.");
         Console.WriteLine("\n\tYou have to guess the number in 10 tries.");
         Console.WriteLine("");
@@ -45,12 +47,12 @@ class Program{
 
     static void GameLoop(int number)
     {
-        int guesses = 10;
+        int maxGuesses = 10;
         int guess = 0;
    
-        for (int guessNum = 1; guessNum <= guesses + 1; guessNum++)
+        for (int guessNum = 1; guessNum <= maxGuesses + 1; guessNum++)
         {
-            if (guessNum == guesses + 1 && guess != number)
+            if (guessNum == maxGuesses + 1 && guess != number)
             {
                 Console.WriteLine("\tYou lost.");
                 return;
@@ -77,7 +79,8 @@ class Program{
             } 
             else
             {
-                Console.WriteLine("\tCongratulations!");
+                Console.ForegroundColor = ConsoleColor.Green; 
+                Console.WriteLine($"\n\tCongratulations! You guessed {number} in {guessNum} attempts!");
                 return; 
             }
         }
@@ -85,6 +88,5 @@ class Program{
     }
 }
 
-// TODO
-// Lacking "Too high" or "Too low" feedback. 
-// Missing total attempts taken message after game.
+// FUTURE FEATURES
+// User input for max attempts
