@@ -56,10 +56,9 @@ class Program{
                 return;
             }
 
-            Console.Write($"\tGuess number {guessNum}: ");
-            string input = Console.ReadLine();
+            Console.Write($"\tAttempt {guessNum}: ");
 
-            if (!int.TryParse(input, out int x))
+            if (!int.TryParse(Console.ReadLine(), out int x))
             {
                 Console.WriteLine("\tNumbers only. That's a guess wasted.");
             }
@@ -67,8 +66,16 @@ class Program{
             
             if (guess != number)
             {
-                Console.WriteLine("\tWrong.");
-            } else
+                if (guess > number)
+                {
+                    Console.WriteLine("\tToo high");
+                }
+                else
+                {
+                    Console.WriteLine("\tToo low");
+                }
+            } 
+            else
             {
                 Console.WriteLine("\tCongratulations!");
                 return; 
@@ -79,5 +86,5 @@ class Program{
 }
 
 // TODO
-// Lacking "Too high" or "Too low" feedback.
+// Lacking "Too high" or "Too low" feedback. 
 // Missing total attempts taken message after game.

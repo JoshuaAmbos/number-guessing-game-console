@@ -12,3 +12,4 @@
 /home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.pdb
 /home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.genruntimeconfig.cache
 /home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/ref/NumberGuessingGame.dll
+/home/joshuuu/projects/NumberGuessingGame/obj/Debug/net10.0/NumberGuessingGame.sourcelink.json
