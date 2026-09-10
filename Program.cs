@@ -20,14 +20,22 @@ class Program{
         Console.WriteLine("\n\t=====================================================================================");
         Console.ResetColor();
         Console.WriteLine("\n\tA secret integer is randomly generated between a 1 and a number of your choice.");
-        Console.WriteLine("\n\tYou have to guess the number in 10 tries.");
+        Console.WriteLine("\n\tYou have to guess the number in N guesses.");
         Console.WriteLine("");
         Console.WriteLine("\tPress any key to start the game...");
         Console.ReadKey(true);
-
+        Console.Write("\n\tHow much should the max guesses be? ");
         
+        int maxGuess;
+        while (!int.TryParse(Console.ReadLine(), out maxGuess) || maxGuess <= 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\n\tInvalid choice. Must be a whole number greater than 1.");
+            Console.ResetColor();
+            Console.Write("\n\tHow much should the max guesses be? ");
+        }
         int number = GenerateNumber();
-        GameLoop(number);
+        GameLoop(number, maxGuess); 
     }
     static int GenerateNumber()
     {
@@ -37,56 +45,78 @@ class Program{
 
         while (!int.TryParse(Console.ReadLine(), out maxRange) || maxRange <= 1)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\n\tInvalid choice. Must be a whole number greater than 1.");
+            Console.ResetColor();
             Console.Write("\n\tEnter the maximum number for the range (greater than 1): ");
         }
 
         Random random = new();
+        Console.Write("\n\t");
+        ShowGeneratingNumberMessage();
+        System.Threading.Thread.Sleep(300);
+        Console.WriteLine();
         return random.Next(1, maxRange + 1);
     }
 
-    static void GameLoop(int number)
+    static void ShowGeneratingNumberMessage()
     {
-        int maxGuesses = 10;
+        string message = "Generating number...";
+        foreach (char letter in message)
+        {
+            Console.Write(letter);
+            System.Threading.Thread.Sleep(150);
+        }
+    }
+
+    static void GameLoop(int number, int maxGuess)
+    {
         int guess = 0;
    
-        for (int guessNum = 1; guessNum <= maxGuesses + 1; guessNum++)
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\n\tStart!");
+        Console.ResetColor();
+
+        for (int guessNum = 1; guessNum <= maxGuess + 1;)
         {
-            if (guessNum == maxGuesses + 1 && guess != number)
+            if (guessNum == maxGuess + 1 && guess != number)
             {
-                Console.WriteLine("\tYou lost.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\tYou lost. You've reached the max number of tries.");
+                Console.ResetColor();
                 return;
             }
-
             Console.Write($"\tAttempt {guessNum}: ");
 
             if (!int.TryParse(Console.ReadLine(), out int x))
             {
                 Console.WriteLine("\tNumbers only. That's a guess wasted.");
             }
-            guess = x;
-            
-            if (guess != number)
+            else
             {
-                if (guess > number)
+                guess = x;
+
+                if (guess != number)
                 {
-                    Console.WriteLine("\tToo high");
+                    if (guess > number)
+                    {
+                        Console.WriteLine("\tToo high");
+                    } 
+                    else 
+                    {
+                        Console.WriteLine("\tToo low");  
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("\tToo low");
-                }
-            } 
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Green; 
-                Console.WriteLine($"\n\tCongratulations! You guessed {number} in {guessNum} attempts!");
-                return; 
+                    Console.ForegroundColor = ConsoleColor.Green; 
+                    Console.WriteLine($"\n\tCongratulations! You guessed {number} in {guessNum} attempts!");
+                    return;
+                } 
             }
+            guessNum++;
+            
         }
         return; 
     }
 }
-
-// FUTURE FEATURES
-// User input for max attempts
